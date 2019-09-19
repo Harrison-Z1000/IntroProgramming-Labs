@@ -12,4 +12,6 @@ def main():
     adj = input("Enter an adjective: ")
     print("Every Tuesday night, when no one is looking, the ", end='')
     print(adj + " " + noun + " goes to " + place + " to " + verb + ".")
+
+
 main()

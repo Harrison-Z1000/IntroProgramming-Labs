@@ -11,4 +11,6 @@ def main():
     time = distance / speed
     print("The time it takes for a photo from Curiosity to reach NASA ", end='')
     print("when Mars is at its closest orbit to Earth is", time, "seconds or", time / 60, "minutes.")
+
+
 main()
