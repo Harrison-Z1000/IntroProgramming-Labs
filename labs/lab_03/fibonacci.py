@@ -1,7 +1,7 @@
 # Introduction to Programming
 # Author: Harrison Zheng
 # Date: 09/25/19
-# This program computes the nth Fibonacci number given by the user.
+# This program computes the nth Fibonacci number given by the user.   
 
 
 def main():
