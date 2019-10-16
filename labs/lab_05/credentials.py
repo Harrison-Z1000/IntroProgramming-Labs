@@ -3,18 +3,30 @@
 # Author: Harrison Zheng
 # Date: 2019-10-16
 
+
 def main():
+    names = getNames()
+    uname = createUsername(names)
+    passwd = getPassword()
+    print("Account configured. Your new email address is",
+          uname + "@marist.edu")
+
+
+def getNames():
     # get user's first and last names
     first = input("Enter your first name: ")
     last = input("Enter your last name: ")
+    return [first, last]
 
-    # TODO modify this to generate a Marist-style username
-    uname = first + "." + last
 
-    # ask user to create a new password
-    passwd = input("Create a new password: ")
+def createUsername(names):
+    uname = names[0] + "." + names[1]  # Generates a Marist-style username
+    return str(uname)
 
-    # TODO modify this to ensure the password has at least 8 characters
+
+def getPassword():
+    passwd = input("Create a new password: ")  # Ask user to create a new password
+    # Ensures the password has at least 8 characters
     while len(passwd) != 0:
         if len(passwd) < 8:
             print("Fool of a Took! That password is feeble!")
@@ -22,9 +34,7 @@ def main():
         else:
             print("The force is strong in this one...")
             break
-
-    print("Account configured. Your new email address is",
-          uname + "@marist.edu")
+    return passwd
 
 
 main()
