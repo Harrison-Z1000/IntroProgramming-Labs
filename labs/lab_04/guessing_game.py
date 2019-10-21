@@ -24,9 +24,8 @@ def main():
             else:
                 print("That's unfortunate. The " + animal + " is such a cool animal.")
                 break
-        else:  # If the user guesses incorrectly, they are prompted to guess again.
+        else:  # If the user guesses incorrectly, they are asked to guess again.
             print("Sorry, that is incorrect. Please try again.")
-            userAnimal = str(input("What kind of animal do you think it is?: "))
 
 
 main()
