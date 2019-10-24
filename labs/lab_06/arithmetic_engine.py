@@ -45,9 +45,17 @@ def do_loop():
 
 def get_numbers():
     # Separate method ensures computer does not ask for numbers if user puts in 'quit' or an invalid command
-    num1 = int(input("Enter the first number: "))
-    num2 = int(input("Enter the second number: "))
-    return [num1, num2]
+    while True:
+        try:
+            # Will crash if either input is non-numeric
+            num1 = int(input("Enter the first number: "))
+            num2 = int(input("Enter the second number: "))
+            frac = num1 / num2
+        except ValueError:
+            print("Enter numbers only! \n")
+            # Computer asks user to enter numbers again if it catches an error
+            continue
+        return [num1, num2]
 
 
 def main():
