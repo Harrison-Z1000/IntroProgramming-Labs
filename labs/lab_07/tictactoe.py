@@ -55,13 +55,33 @@ def hasBlanks(board):
     # Checks if there are any blank squares on the board
     for row in range(len(board)):
         for square in range(len(board[row])):
-            numberInSquare = board[row][square]
-            if numberInSquare == 0:
+            if board[row][square] == 0:
                 return True
             elif board[0][0] != 0:
                 continue
             else:
                 return False
+
+
+def completeRow(board, player):
+    # Checks whether the player who made the last move won by filling a row
+    if board[0][0] == player and board[0][1] == player and board[0][2] == player:
+        return True
+    elif board[1][0] == player and board[1][1] == player and board[1][2] == player:
+        return True
+    elif board[2][0] == player and board[2][1] == player and board[2][2] == player:
+        return True
+    else:
+        return False
+
+
+def checkWinner(board, player):
+    # If the player who made the last move won, the computer prints a message and exits the game
+    if completeRow(board, player):
+        print("Congratulations Player", player, "! You won !")
+        raise SystemExit
+    else:
+        pass
 
 
 def main():
@@ -71,6 +91,7 @@ def main():
         printBoard(board)
         row, col = getPlayerMove()
         markBoard(board, row, col, player)
+        checkWinner(board, player)
         # Switches player for next turn
         player = player % 2 + 1
 
