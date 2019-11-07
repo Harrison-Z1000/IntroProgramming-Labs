@@ -75,9 +75,24 @@ def completeRow(board, player):
         return False
 
 
+def completeCol(board, player):
+    # Checks whether the player who made the last move won by filling a column
+    if board[0][0] == player and board[1][0] == player and board[2][0] == player:
+        return True
+    elif board[0][1] == player and board[1][1] == player and board[2][1] == player:
+        return True
+    elif board[0][2] == player and board[1][2] == player and board[2][2] == player:
+        return True
+    else:
+        return False
+
+
 def checkWinner(board, player):
     # If the player who made the last move won, the computer prints a message and exits the game
     if completeRow(board, player):
+        print("Congratulations Player", player, "! You won !")
+        raise SystemExit
+    if completeCol(board, player):
         print("Congratulations Player", player, "! You won !")
         raise SystemExit
     else:
