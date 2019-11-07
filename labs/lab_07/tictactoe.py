@@ -6,6 +6,7 @@
 
 def printRow(board, row):
     # Prints a row of the board based on the value in each square
+    # Player 1 is represented with x, player 2 with o, and 0 denotes a blank square
     print("|", end='')
     for square in range(len(board[row])):
         numberInSquare = board[row][square]
@@ -87,12 +88,25 @@ def completeCol(board, player):
         return False
 
 
+def completeDiag(board, player):
+    # Checks whether the player who made the last move won by filling a diagonal
+    if board[0][0] == player and board[1][1] == player and board[2][2] == player:
+        return True
+    elif board[0][2] == player and board[1][1] == player and board[2][0] == player:
+        return True
+    else:
+        return False
+
+
 def checkWinner(board, player):
     # If the player who made the last move won, the computer prints a message and exits the game
     if completeRow(board, player):
         print("Congratulations Player", player, "! You won !")
         raise SystemExit
-    if completeCol(board, player):
+    elif completeCol(board, player):
+        print("Congratulations Player", player, "! You won !")
+        raise SystemExit
+    elif completeDiag(board, player):
         print("Congratulations Player", player, "! You won !")
         raise SystemExit
     else:
