@@ -37,7 +37,7 @@ def do_loop():
             break
         else:
             print("'" + cmd + "'", "is not a valid command.")
-            break
+            continue
 
         # Computer only prints the result if user puts in a valid command that is not 'quit'
         print("The result is:", result, "\n")
@@ -52,8 +52,12 @@ def get_numbers():
             num2 = int(input("Enter the second number: "))
             frac = num1 / num2
         except ValueError:
+            # Computer asks user to enter numbers again if they put in non-numeric values
             print("Enter numbers only! \n")
-            # Computer asks user to enter numbers again if it catches an error
+            continue
+        except ZeroDivisionError:
+            # Computer also asks user to enter numbers again if they try to divide a number by zero
+            print("Cannot divide a number by 0! \n")
             continue
         return [num1, num2]
 
