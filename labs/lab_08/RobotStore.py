@@ -4,7 +4,7 @@
 # Date: 2019-11-17
 
 
-from .product import Product
+from product import Product
 
 # Instantiates each product
 products = [Product("Ultrasonic range finder", 2.50, 4),
@@ -33,7 +33,7 @@ def main():
         vals = input("Enter product ID and quantity you wish to buy: ").split(" ")
         if vals[0] == "quit": break
 
-        prod_id = int(vals[0])
+        prod_id = int(vals[0]) - 1
         count = int(vals[1])
 
         # Checks that the product the user wants is in stock
