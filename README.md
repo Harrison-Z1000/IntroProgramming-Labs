@@ -1,3 +1,2 @@
-# Introduction to Programming - Lab Activities
-This repository contains my work for all Lab activities
-
+# CMPT120-Labs
+This repository contains work for all lab activities.
